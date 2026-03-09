@@ -7,8 +7,10 @@ from newspaper import Article
 from groq import Groq
 
 # ===== KONFIGURASI =====
-BOT_TOKEN = os.getenv("BOT_TOKEN")  # Ambil dari environment variable
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+BOT_TOKEN = os.getenv("8260030414:AAF2tlpIrsJN2QRyO265T6xhfge7jyOEZfg
+")  # Ambil dari environment variable
+GROQ_API_KEY = os.getenv"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
+"
 
 if not BOT_TOKEN or not GROQ_API_KEY:
     raise Exception("Sila set BOT_TOKEN dan GROQ_API_KEY dalam environment.")
