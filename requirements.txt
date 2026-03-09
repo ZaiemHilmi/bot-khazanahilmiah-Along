@@ -3,3 +3,7 @@ newspaper3k
 groq
 requests
 lxml
+youtube-transcript-api
+yt-dlp
+lxml_html_clean
+"Add lxml_html_clean"
