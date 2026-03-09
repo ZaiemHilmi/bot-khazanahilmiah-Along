@@ -7,13 +7,13 @@ from newspaper import Article
 from groq import Groq
 
 # ===== KONFIGURASI =====
-BOT_TOKEN = os.getenv("8260030414:AAF2tlpIrsJN2QRyO265T6xhfge7jyOEZfg
-")  # Ambil dari environment variable
-GROQ_API_KEY = os.getenv"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
-"
+# Hardcode token terus (sebab environment variables tak jalan)
+BOT_TOKEN = "8260030414:AAF2tlpIrsJN2QRyO265T6xhfge7jyOEZfg"
+GROQ_API_KEY = "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"
 
+# Check token wujud
 if not BOT_TOKEN or not GROQ_API_KEY:
-    raise Exception("Sila set BOT_TOKEN dan GROQ_API_KEY dalam environment.")
+    raise Exception("Token atau API Key tak boleh kosong.")
 
 bot = telebot.TeleBot(BOT_TOKEN)
 client = Groq(api_key=GROQ_API_KEY)
@@ -45,7 +45,7 @@ def extract_article(url):
 def summarize_with_groq(text, title):
     prompt = f"""Tajuk: {title}
 
-Teks: {text[:4000]}  # Hadkan panjang
+Teks: {text[:4000]}
 
 Buat ringkasan dalam Bahasa Melayu dalam 3-5 ayat. Kemudian berikan tema utama (contoh: Palestin, Geopolitik, Ekonomi, Sosial, dll.) dalam satu perkataan atau frasa pendek.
 
@@ -55,7 +55,7 @@ TEMA: [tema]
 """
     try:
         response = client.chat.completions.create(
-            model="llama3-70b-8192",  # model percuma Groq
+            model="llama3-70b-8192",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=300
