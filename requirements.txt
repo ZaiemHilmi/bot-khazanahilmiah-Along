@@ -1,0 +1,5 @@
+pyTelegramBotAPI
+newspaper3k
+groq
+requests
+lxml
